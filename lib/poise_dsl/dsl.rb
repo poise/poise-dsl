@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-require 'poise/helpers/defined_in'
+require 'poise'
 
 
 module PoiseDSL
