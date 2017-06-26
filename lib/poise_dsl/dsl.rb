@@ -58,6 +58,9 @@ module PoiseDSL
       # Find which cookbook we were declared in.
       unless name
         name_mod = Module.new do
+          def self.name
+            'poise-dsl stub'
+          end
           extend Poise::Helpers::DefinedIn::ClassMethods
         end
         name_mod.poise_defined!(caller)
