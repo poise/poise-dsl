@@ -15,4 +15,4 @@
 #
 
 name 'poise-dsl_test_other'
-depends 'poise-dsl'
+depends 'poise-dsl_test'

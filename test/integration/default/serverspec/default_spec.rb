@@ -29,10 +29,10 @@ end
 
 describe file('/poise_test_other') do
   it { is_expected.to be_a_file }
-  its(:content) { is_expected.to eq '' }
+  its(:content) { is_expected.to include "undefined local variable or method `helper_one' for cookbook" }
 end
 
 describe file('/poise_test_other2') do
   it { is_expected.to be_a_file }
-  its(:content) { is_expected.to eq '' }
+  its(:content) { is_expected.to include "undefined method `helper_one' for Chef::Resource::File" }
 end

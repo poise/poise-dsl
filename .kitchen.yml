@@ -1,3 +1,9 @@
 ---
 #<% require 'poise_boiler' %>
 <%= PoiseBoiler.kitchen(platforms: 'ubuntu-16.04') %>
+
+suites:
+- name: default
+  run_list:
+  - poise-dsl_test
+  - poise-dsl_test_other
