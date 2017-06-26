@@ -63,7 +63,8 @@ module PoiseDSL
           end
           extend Poise::Helpers::DefinedIn::ClassMethods
         end
-        name_mod.poise_defined!(caller)
+        # Drop any stack frames from inside poise-dsl itself.
+        name_mod.poise_defined!(caller.reject {|line| line =~ /poise_dsl([\/\\]dsl)?\.rb/ })
       end
 
       # Activator module used as part of the monkeypatching.
