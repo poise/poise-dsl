@@ -91,9 +91,10 @@ module PoiseDSL
 
       # Patch the loading behavior in to Chef::Resource.
       Chef::Resource.prepend(Module.new do
-        define_method(:resource_initializing=) do |val|
-          do_patch.call(self) if val
-          super(val)
+        define_method(:cookbook_name=) do |val|
+          super(val).tap do
+            do_patch.call(self)
+          end
         end
       end)
     end
