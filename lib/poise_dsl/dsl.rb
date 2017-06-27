@@ -73,8 +73,8 @@ module PoiseDSL
         # name request was given.
         name ||= name_mod.poise_defined_in_cookbook(obj.run_context)
         # Check if we should enable this DSL.
-        if Array(name).include?(obj.cookbook_name)
           Chef::Log.debug("[poise-dsl] Loading DSL #{name.inspect} in to #{obj.inspect}")
+        if Array(name).include?(obj.cookbook_name.to_s)
           obj.singleton_class.prepend(dsl_mod)
         end
       end
