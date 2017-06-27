@@ -29,7 +29,8 @@ end
 
 describe file('/poise_test_other') do
   it { is_expected.to be_a_file }
-  its(:content) { is_expected.to include "undefined local variable or method `helper_one' for cookbook" }
+  # First message is Chef 13, second is Chef 12.
+  its(:content) { is_expected.to include("undefined local variable or method `helper_one' for cookbook").or(include("No resource, method, or local variable named `helper_one' for")) }
 end
 
 describe file('/poise_test_other2') do
